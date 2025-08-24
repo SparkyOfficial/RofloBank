@@ -1,14 +1,22 @@
 {
   "name": "roflobank",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "RofloBank - Virtual Currency Platform for Project Purchases",
+  "main": "main.js",
+  "homepage": "./",
   "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "dist": "npm run build && electron-builder",
+    "dist-win": "npm run build && electron-builder --win",
+    "pack": "electron-builder --dir",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": ["roflobank", "virtual-currency", "electron", "desktop-app"],
+  "author": "RofloDev",
+  "license": "MIT",
   "dependencies": {
     "electron": "^37.3.1",
     "react": "^19.1.1",
