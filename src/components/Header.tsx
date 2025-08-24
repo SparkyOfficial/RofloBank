@@ -17,37 +17,37 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ user, currentView, setCurrentView }) => {
   return (
     <header className="header">
-      <h1>⚡ РОФЛОБАНК ⚡</h1>
+      <h1>РОФЛОБАНК</h1>
       
       <nav className="nav-buttons">
         <button 
           className={`nav-button ${currentView === 'dashboard' ? 'active' : ''}`}
           onClick={() => setCurrentView('dashboard')}
         >
-          ◈ ЦЕНТР
+          ЦЕНТР
         </button>
         <button 
           className={`nav-button ${currentView === 'store' ? 'active' : ''}`}
           onClick={() => setCurrentView('store')}
         >
-          ◆ КАТАЛОГ
+          КАТАЛОГ
         </button>
         <button 
           className={`nav-button ${currentView === 'transactions' ? 'active' : ''}`}
           onClick={() => setCurrentView('transactions')}
         >
-          ◇ ОПЕРАЦИИ
+          ОПЕРАЦИИ
         </button>
         <button 
           className={`nav-button ${currentView === 'profile' ? 'active' : ''}`}
           onClick={() => setCurrentView('profile')}
         >
-          ◈ ПРОФИЛЬ
+          ПРОФИЛЬ
         </button>
       </nav>
       
       <div className="user-info">
-        <span>► {user.username}</span>
+        <span>ОПЕРАТОР: {user.username}</span>
         <span className="balance">{user.rofloCoin} ЛИР</span>
       </div>
     </header>

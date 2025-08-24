@@ -37,26 +37,26 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
 
   const getProjectIcon = (category: string) => {
     switch (category) {
-      case 'Operating System': return '◈';
-      case 'Communication': return '◆';
-      case 'Games': return '◇';
-      case 'Productivity': return '▪';
-      default: return '▫';
+      case 'Operating System': return 'OS';
+      case 'Communication': return 'COM';
+      case 'Games': return 'GAM';
+      case 'Productivity': return 'PRO';
+      default: return 'SYS';
     }
   };
 
   return (
     <div>
       <div className="card">
-        <h2>◆ КАТАЛОГ ПРОЕКТОВ</h2>
+        <h2>КАТАЛОГ ПРОЕКТОВ</h2>
         <p style={{ color: '#888', marginBottom: '1rem' }}>
-          ► ПРОСМОТР И ПРИОБРЕТЕНИЕ ПРОЕКТОВ ЗА ЛИРЫ ◀
+          ПРОСМОТР И ПРИОБРЕТЕНИЕ ПРОЕКТОВ ЗА ЛИРЫ
         </p>
         
         <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
           <input
             type="text"
-            placeholder="► ПОИСК ПРОЕКТОВ..."
+            placeholder="ПОИСК ПРОЕКТОВ"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
@@ -93,10 +93,10 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span style={{ color: '#888' }}>
-            ► ОТОБРАЖЕНО {filteredProjects.length} ИЗ {projects.length} ПРОЕКТОВ
+            ОТОБРАЖЕНО {filteredProjects.length} ИЗ {projects.length} ПРОЕКТОВ
           </span>
           <span style={{ fontWeight: 'bold', color: '#00ff41' }}>
-            ◈ БАЛАНС: {userBalance} ЛИР
+            БАЛАНС: {userBalance} ЛИР
           </span>
         </div>
       </div>
@@ -117,7 +117,7 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
                 <p className="project-description">{project.description}</p>
                 
                 <div className="project-details">
-                  <span className="project-price">{project.price} RC</span>
+                  <span className="project-price">{project.price} ЛИР</span>
                   <span className="project-category">{project.category}</span>
                 </div>
                 
@@ -131,8 +131,8 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
                   borderTop: '1px solid #333',
                   borderBottom: '1px solid #333'
                 }}>
-                  <span>► {project.developer}</span>
-                  <span>◆ ОЦЕНКА: 4.8/5</span>
+                  <span>{project.developer}</span>
+                  <span>ОЦЕНКА: 4.8/5</span>
                 </div>
                 
                 <button
@@ -141,10 +141,10 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
                   disabled={isPurchased || !canAfford}
                 >
                   {isPurchased 
-                    ? '◈ ПОЛУЧЕНО' 
+                    ? 'ПОЛУЧЕНО' 
                     : !canAfford 
-                      ? '◇ НЕДОСТАТОЧНО ЛИР' 
-                      : `◆ ПРИОБРЕСТИ ЗА ${project.price} ЛИР`
+                      ? 'НЕДОСТАТОЧНО ЛИР' 
+                      : `ПРИОБРЕСТИ ЗА ${project.price} ЛИР`
                   }
                 </button>
               </div>
@@ -155,20 +155,20 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
 
       {filteredProjects.length === 0 && (
         <div className="card" style={{ textAlign: 'center', marginTop: '2rem' }}>
-          <h3>◇ ПРОЕКТЫ НЕ ОБНАРУЖЕНЫ</h3>
+          <h3>ПРОЕКТЫ НЕ ОБНАРУЖЕНЫ</h3>
           <p style={{ color: '#888', marginTop: '1rem' }}>
-            ► Проверьте критерии поиска или выберите другую категорию ◀
+            Проверьте критерии поиска или выберите другую категорию
           </p>
         </div>
       )}
 
       <div className="card" style={{ marginTop: '2rem', background: '#1a1a2d', border: '2px solid #2d2d5d' }}>
-        <h3>◈ ОПЕРАТИВНЫЕ УКАЗАНИЯ</h3>
+        <h3>ОПЕРАТИВНЫЕ УКАЗАНИЯ</h3>
         <ul style={{ marginTop: '1rem', paddingLeft: '1.5rem', color: '#888' }}>
-          <li>► Используйте категории для поиска нужных проектов</li>
-          <li>► Применяйте функцию поиска для быстрого поиска</li>
-          <li>► Проверяйте баланс перед покупкой</li>
-          <li>► Приобретённые проекты отобразятся в центре управления</li>
+          <li>Используйте категории для поиска нужных проектов</li>
+          <li>Применяйте функцию поиска для быстрого поиска</li>
+          <li>Проверяйте баланс перед покупкой</li>
+          <li>Приобретённые проекты отобразятся в центре управления</li>
         </ul>
       </div>
     </div>

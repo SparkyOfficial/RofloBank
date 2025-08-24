@@ -46,7 +46,7 @@ const App: React.FC = () => {
       });
       
       window.electronAPI.onShowAbout(() => {
-        alert('◈ РОФЛОБАНК v1.0.0\n◆ СИСТЕМА УПРАВЛЕНИЯ ЛИРАМИ\n◇ ПЛАТФОРМА ПРИОБРЕТЕНИЯ ПРОЕКТОВ');
+        alert('РОФЛОБАНК v1.0.0\nСИСТЕМА УПРАВЛЕНИЯ ЛИРАМИ\nПЛАТФОРМА ПРИОБРЕТЕНИЯ ПРОЕКТОВ');
       });
     }
 
@@ -134,9 +134,9 @@ const App: React.FC = () => {
             }));
             
             setPurchasedProjects(prev => [...prev, project.id]);
-            alert(`◈ ПРОЕКТ ${project.name} ПОЛУЧЕН!`);
+            alert(`ПРОЕКТ ${project.name} ПОЛУЧЕН`);
           } else {
-            alert('◇ ОШИБКА ПОКУПКИ: ' + result.message);
+            alert('ОШИБКА ПОКУПКИ: ' + result.message);
           }
         } else {
           // Fallback for non-Electron environment
@@ -146,14 +146,14 @@ const App: React.FC = () => {
           }));
           
           setPurchasedProjects(prev => [...prev, project.id]);
-          alert(`◈ ПРОЕКТ ${project.name} ПОЛУЧЕН!`);
+          alert(`ПРОЕКТ ${project.name} ПОЛУЧЕН`);
         }
       } catch (error) {
         console.error('Purchase error:', error);
-        alert('◇ ОШИБКА ПОКУПКИ');
+        alert('ОШИБКА ПОКУПКИ');
       }
     } else {
-      alert('◇ НЕДОСТАТОЧНО ЛИР!');
+      alert('НЕДОСТАТОЧНО ЛИР');
     }
   };
 
