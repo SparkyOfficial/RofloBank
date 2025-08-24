@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Header from '../components/Header';
-import Dashboard from '../components/Dashboard';
-import ProjectStore from '../components/ProjectStore';
-import TransactionHistory from '../components/TransactionHistory';
-import UserProfile from '../components/UserProfile';
+import Header from './components/Header';
+import Dashboard from './components/Dashboard';
+import ProjectStore from './components/ProjectStore';
+import TransactionHistory from './components/TransactionHistory';
+import UserProfile from './components/UserProfile';
 
 interface User {
   username: string;
