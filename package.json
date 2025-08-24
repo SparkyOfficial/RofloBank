@@ -37,7 +37,8 @@
     ],
     "win": {
       "target": "nsis",
-      "icon": "assets/icon.ico"
+      "icon": "assets/icon.ico",
+      "forceCodeSigning": false
     },
     "nsis": {
       "oneClick": false,
@@ -55,7 +56,6 @@
     }
   },
   "dependencies": {
-    "electron": "^37.3.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
@@ -65,6 +65,7 @@
     "@types/react-dom": "^19.1.7",
     "concurrently": "^9.2.0",
     "css-loader": "^7.1.2",
+    "electron": "^37.3.1",
     "electron-builder": "^26.0.12",
     "html-webpack-plugin": "^5.6.4",
     "style-loader": "^4.0.0",

@@ -26,7 +26,7 @@ type CurrentView = 'dashboard' | 'store' | 'transactions' | 'profile';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<User>({
-    username: 'RofloUser',
+    username: 'ОПЕРАТОР-001',
     balance: 0,
     rofloCoin: 1000
   });
@@ -46,7 +46,7 @@ const App: React.FC = () => {
       });
       
       window.electronAPI.onShowAbout(() => {
-        alert('RofloBank v1.0.0\nVirtual Currency Platform for Project Purchases');
+        alert('◈ РОФЛОБАНК v1.0.0\n◆ СИСТЕМА УПРАВЛЕНИЯ ЛИРАМИ\n◇ ПЛАТФОРМА ПРИОБРЕТЕНИЯ ПРОЕКТОВ');
       });
     }
 
@@ -74,39 +74,39 @@ const App: React.FC = () => {
       const sampleProjects: Project[] = [
         {
           id: '1',
-          name: 'RofloOS',
-          description: 'Операционная система с юмористическим интерфейсом',
+          name: 'ОПЕРАЦИОННАЯ СИСТЕМА ОРДО-66',
+          description: 'Автономная система управления ресурсами',
           price: 150,
           category: 'Operating System',
-          image: '/assets/roflos.png',
-          developer: 'RofloDev'
+          image: '/assets/ordo66.png',
+          developer: 'ОРДО-ТЕХ'
         },
         {
           id: '2',
-          name: 'RofloChat',
-          description: 'Мессенджер с мемами и стикерами',
+          name: 'КОММУНИКАТОР ТНО-11',
+          description: 'Система защищённой связи и передачи данных',
           price: 75,
           category: 'Communication',
-          image: '/assets/roflochat.png',
-          developer: 'RofloDev'
+          image: '/assets/tno11.png',
+          developer: 'КОММСОЮЗ'
         },
         {
           id: '3',
-          name: 'RofloGames Pack',
-          description: 'Коллекция забавных мини-игр',
+          name: 'ПАКЕТ ИМИТАЦИЙ П-1962',
+          description: 'Комплекс программ симуляции и обучения',
           price: 200,
           category: 'Games',
-          image: '/assets/roflogames.png',
-          developer: 'RofloGames'
+          image: '/assets/sim1962.png',
+          developer: 'СИМ-ЛАБ'
         },
         {
           id: '4',
-          name: 'RofloEditor',
-          description: 'Текстовый редактор с приколами',
+          name: 'РЕДАКТОР ДОКУМЕНТОВ К-7',
+          description: 'Профессиональная система обработки текстов',
           price: 100,
           category: 'Productivity',
-          image: '/assets/rofloeditor.png',
-          developer: 'RofloTools'
+          image: '/assets/editor-k7.png',
+          developer: 'ПРОД-ОТДЕЛ'
         }
       ];
       
@@ -134,9 +134,9 @@ const App: React.FC = () => {
             }));
             
             setPurchasedProjects(prev => [...prev, project.id]);
-            alert(`Successfully purchased ${project.name}!`);
+            alert(`◈ ПРОЕКТ ${project.name} ПОЛУЧЕН!`);
           } else {
-            alert('Purchase failed: ' + result.message);
+            alert('◇ ОШИБКА ПОКУПКИ: ' + result.message);
           }
         } else {
           // Fallback for non-Electron environment
@@ -146,14 +146,14 @@ const App: React.FC = () => {
           }));
           
           setPurchasedProjects(prev => [...prev, project.id]);
-          alert(`Successfully purchased ${project.name}!`);
+          alert(`◈ ПРОЕКТ ${project.name} ПОЛУЧЕН!`);
         }
       } catch (error) {
         console.error('Purchase error:', error);
-        alert('An error occurred during purchase');
+        alert('◇ ОШИБКА ПОКУПКИ');
       }
     } else {
-      alert('Insufficient RofloCoins!');
+      alert('◇ НЕДОСТАТОЧНО ЛИР!');
     }
   };
 

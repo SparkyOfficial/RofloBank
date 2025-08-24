@@ -34,28 +34,28 @@ const Dashboard: React.FC<DashboardProps> = ({ user, purchasedProjects, projects
   return (
     <div className="dashboard">
       <div className="card stats-card">
-        <h2>💰 RofloCoins Balance</h2>
+        <h2>◈ БАЛАНС ЛИР</h2>
         <div className="stat-number">{user.rofloCoin}</div>
-        <div className="stat-label">Available RC</div>
+        <div className="stat-label">ДОСТУПНО ЛИР</div>
       </div>
 
       <div className="card stats-card">
-        <h2>🛍️ Projects Owned</h2>
+        <h2>◆ ПРОЕКТЫ</h2>
         <div className="stat-number">{purchasedProjects.length}</div>
-        <div className="stat-label">Total Projects</div>
+        <div className="stat-label">В СОБСТВЕННОСТИ</div>
       </div>
 
       <div className="card stats-card">
-        <h2>💸 Total Spent</h2>
+        <h2>◇ ПОТРАТЫ</h2>
         <div className="stat-number">{totalSpent}</div>
-        <div className="stat-label">RofloCoins</div>
+        <div className="stat-label">ЛИР ПОТРАЧЕНО</div>
       </div>
 
       <div className="card">
-        <h2>🕒 Recent Purchases</h2>
+        <h2>◈ ПОСЛЕДНИЕ ОПЕРАЦИИ</h2>
         {recentPurchases.length === 0 ? (
-          <p style={{ textAlign: 'center', color: '#666', marginTop: '1rem' }}>
-            No purchases yet. Visit the store to buy some projects! 🛒
+          <p style={{ textAlign: 'center', color: '#888', marginTop: '1rem' }}>
+            ► ОПЕРАЦИЙ НЕ ОБНАРУЖЕНО. ПЕРЕЙДИТЕ В КАТАЛОГ ◀
           </p>
         ) : (
           <div style={{ marginTop: '1rem' }}>
@@ -64,19 +64,19 @@ const Dashboard: React.FC<DashboardProps> = ({ user, purchasedProjects, projects
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '0.75rem',
-                background: 'rgba(102, 126, 234, 0.1)',
-                borderRadius: '10px',
-                marginBottom: '0.5rem'
+                padding: '10px',
+                background: '#0a0a0a',
+                border: '1px solid #333',
+                marginBottom: '8px'
               }}>
                 <div>
-                  <strong>{project.name}</strong>
-                  <div style={{ fontSize: '0.9rem', color: '#666' }}>
+                  <strong>◈ {project.name}</strong>
+                  <div style={{ fontSize: '0.9rem', color: '#888' }}>
                     {project.category} • {project.developer}
                   </div>
                 </div>
-                <div style={{ fontWeight: 'bold', color: '#667eea' }}>
-                  {project.price} RC
+                <div style={{ fontWeight: 'bold', color: '#00ff41' }}>
+                  -{project.price} ЛИР
                 </div>
               </div>
             ))}
@@ -85,48 +85,48 @@ const Dashboard: React.FC<DashboardProps> = ({ user, purchasedProjects, projects
       </div>
 
       <div className="card">
-        <h2>🎯 Quick Actions</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '1rem' }}>
+        <h2>◇ ОПЕРАТИВНЫЕ КОМАНДЫ</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '1rem' }}>
           <button 
             className="purchase-button"
             onClick={() => window.location.reload()}
-            style={{ background: 'linear-gradient(45deg, #4caf50, #45a049)' }}
+            style={{ background: '#1a2d1a', borderColor: '#2d5d2d', color: '#4caf50' }}
           >
-            🔄 Refresh Data
+            ◈ ОБНОВИТЬ ДАННЫЕ
           </button>
           <button 
             className="purchase-button"
-            style={{ background: 'linear-gradient(45deg, #ff9800, #f57c00)' }}
+            style={{ background: '#2d1a1a', borderColor: '#5d2d2d', color: '#ff6b35' }}
           >
-            💰 Buy More RofloCoins
+            ◆ ПОПОЛНИТЬ ЛИРЫ
           </button>
           <button 
             className="purchase-button"
-            style={{ background: 'linear-gradient(45deg, #9c27b0, #7b1fa2)' }}
+            style={{ background: '#1a1a2d', borderColor: '#2d2d5d', color: '#6b6bff' }}
           >
-            🎁 Redeem Promo Code
+            ◇ ПРОМО-КОД
           </button>
         </div>
       </div>
 
       <div className="card">
-        <h2>📈 Account Statistics</h2>
+        <h2>◈ СТАТИСТИКА АККАУНТА</h2>
         <div style={{ marginTop: '1rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-            <span>Account Level:</span>
-            <strong>🌟 Beginner</strong>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', padding: '5px 0', borderBottom: '1px solid #333' }}>
+            <span>► УРОВЕНЬ:</span>
+            <strong style={{ color: '#ff6b35' }}>◈ НОВИЧОК</strong>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-            <span>Member Since:</span>
-            <strong>Today</strong>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', padding: '5px 0', borderBottom: '1px solid #333' }}>
+            <span>► ДАТА РЕГ.:</span>
+            <strong style={{ color: '#00ff41' }}>СЕГОДНЯ</strong>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-            <span>Favorite Category:</span>
-            <strong>{projects.length > 0 ? projects[0].category : 'None'}</strong>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', padding: '5px 0', borderBottom: '1px solid #333' }}>
+            <span>► КАТЕГОРИЯ:</span>
+            <strong style={{ color: '#6b6bff' }}>{projects.length > 0 ? projects[0].category : 'ОТСУТСТВУЕТ'}</strong>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span>Next Achievement:</span>
-            <strong>🏆 First Purchase</strong>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0' }}>
+            <span>► ЦЕЛЬ:</span>
+            <strong style={{ color: '#ff6b35' }}>◇ ПЕРВАЯ ПОКУПКА</strong>
           </div>
         </div>
       </div>

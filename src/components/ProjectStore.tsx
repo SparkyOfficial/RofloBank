@@ -37,35 +37,37 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
 
   const getProjectIcon = (category: string) => {
     switch (category) {
-      case 'Operating System': return '💻';
-      case 'Communication': return '💬';
-      case 'Games': return '🎮';
-      case 'Productivity': return '⚡';
-      default: return '📦';
+      case 'Operating System': return '◈';
+      case 'Communication': return '◆';
+      case 'Games': return '◇';
+      case 'Productivity': return '▪';
+      default: return '▫';
     }
   };
 
   return (
     <div>
       <div className="card">
-        <h2>🛒 Project Store</h2>
-        <p style={{ color: '#666', marginBottom: '1rem' }}>
-          Browse and purchase amazing projects with your RofloCoins!
+        <h2>◆ КАТАЛОГ ПРОЕКТОВ</h2>
+        <p style={{ color: '#888', marginBottom: '1rem' }}>
+          ► ПРОСМОТР И ПРИОБРЕТЕНИЕ ПРОЕКТОВ ЗА ЛИРЫ ◀
         </p>
         
         <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
           <input
             type="text"
-            placeholder="🔍 Search projects..."
+            placeholder="► ПОИСК ПРОЕКТОВ..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
               flex: 1,
               minWidth: '200px',
               padding: '0.75rem',
-              borderRadius: '10px',
-              border: '1px solid #ddd',
-              fontSize: '1rem'
+              borderRadius: '0',
+              border: '1px solid #444',
+              fontSize: '1rem',
+              background: '#0a0a0a',
+              color: '#e8e8e8'
             }}
           />
           
@@ -74,10 +76,11 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
             onChange={(e) => setSelectedCategory(e.target.value)}
             style={{
               padding: '0.75rem',
-              borderRadius: '10px',
-              border: '1px solid #ddd',
+              borderRadius: '0',
+              border: '1px solid #444',
               fontSize: '1rem',
-              background: 'white'
+              background: '#0a0a0a',
+              color: '#e8e8e8'
             }}
           >
             {categories.map(category => (
@@ -89,11 +92,11 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ color: '#666' }}>
-            Showing {filteredProjects.length} of {projects.length} projects
+          <span style={{ color: '#888' }}>
+            ► ОТОБРАЖЕНО {filteredProjects.length} ИЗ {projects.length} ПРОЕКТОВ
           </span>
-          <span style={{ fontWeight: 'bold', color: '#667eea' }}>
-            💰 Your Balance: {userBalance} RC
+          <span style={{ fontWeight: 'bold', color: '#00ff41' }}>
+            ◈ БАЛАНС: {userBalance} ЛИР
           </span>
         </div>
       </div>
@@ -120,13 +123,16 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
                 
                 <div style={{ 
                   fontSize: '0.9rem', 
-                  color: '#666', 
+                  color: '#888', 
                   marginBottom: '1rem',
                   display: 'flex',
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  padding: '5px 0',
+                  borderTop: '1px solid #333',
+                  borderBottom: '1px solid #333'
                 }}>
-                  <span>👨‍💻 {project.developer}</span>
-                  <span>⭐ 4.8/5</span>
+                  <span>► {project.developer}</span>
+                  <span>◆ ОЦЕНКА: 4.8/5</span>
                 </div>
                 
                 <button
@@ -135,10 +141,10 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
                   disabled={isPurchased || !canAfford}
                 >
                   {isPurchased 
-                    ? '✅ Owned' 
+                    ? '◈ ПОЛУЧЕНО' 
                     : !canAfford 
-                      ? '💸 Insufficient Funds' 
-                      : `🛒 Buy for ${project.price} RC`
+                      ? '◇ НЕДОСТАТОЧНО ЛИР' 
+                      : `◆ ПРИОБРЕСТИ ЗА ${project.price} ЛИР`
                   }
                 </button>
               </div>
@@ -149,20 +155,20 @@ const ProjectStore: React.FC<ProjectStoreProps> = ({
 
       {filteredProjects.length === 0 && (
         <div className="card" style={{ textAlign: 'center', marginTop: '2rem' }}>
-          <h3>😕 No projects found</h3>
-          <p style={{ color: '#666', marginTop: '1rem' }}>
-            Try adjusting your search criteria or browse different categories.
+          <h3>◇ ПРОЕКТЫ НЕ ОБНАРУЖЕНЫ</h3>
+          <p style={{ color: '#888', marginTop: '1rem' }}>
+            ► Проверьте критерии поиска или выберите другую категорию ◀
           </p>
         </div>
       )}
 
-      <div className="card" style={{ marginTop: '2rem', background: 'rgba(102, 126, 234, 0.1)' }}>
-        <h3>💡 Pro Tips</h3>
-        <ul style={{ marginTop: '1rem', paddingLeft: '1.5rem', color: '#666' }}>
-          <li>Browse by category to find projects that interest you most</li>
-          <li>Use the search function to quickly find specific projects</li>
-          <li>Check your balance before making purchases</li>
-          <li>Purchased projects will appear in your dashboard</li>
+      <div className="card" style={{ marginTop: '2rem', background: '#1a1a2d', border: '2px solid #2d2d5d' }}>
+        <h3>◈ ОПЕРАТИВНЫЕ УКАЗАНИЯ</h3>
+        <ul style={{ marginTop: '1rem', paddingLeft: '1.5rem', color: '#888' }}>
+          <li>► Используйте категории для поиска нужных проектов</li>
+          <li>► Применяйте функцию поиска для быстрого поиска</li>
+          <li>► Проверяйте баланс перед покупкой</li>
+          <li>► Приобретённые проекты отобразятся в центре управления</li>
         </ul>
       </div>
     </div>
