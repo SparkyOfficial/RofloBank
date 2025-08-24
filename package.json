@@ -14,9 +14,46 @@
     "pack": "electron-builder --dir",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["roflobank", "virtual-currency", "electron", "desktop-app"],
+  "keywords": [
+    "roflobank",
+    "virtual-currency",
+    "electron",
+    "desktop-app"
+  ],
   "author": "RofloDev",
   "license": "MIT",
+  "build": {
+    "appId": "com.roflodev.roflobank",
+    "productName": "RofloBank",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  },
   "dependencies": {
     "electron": "^37.3.1",
     "react": "^19.1.1",
@@ -25,12 +62,14 @@
   "devDependencies": {
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.7",
+    "concurrently": "^9.2.0",
     "css-loader": "^7.1.2",
     "electron-builder": "^26.0.12",
     "html-webpack-plugin": "^5.6.4",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.2",
+    "wait-on": "^8.0.4",
     "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1"
   }
