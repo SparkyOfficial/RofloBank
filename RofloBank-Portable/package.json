@@ -1,0 +1,1 @@
+{"name":"roflobank","version":"1.0.0","main":"main.js","author":"RofloBank Team","description":"РОФЛОБАНК - Система управления лирами","devDependencies":{"electron":"^37.3.1"}}
